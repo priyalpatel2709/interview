@@ -22,6 +22,24 @@ const connectDB = async () => {
 
 const users = [
   {
+    name: "Test User",
+    email: "test@mail.com",
+    age: 25,
+    isActive: true,
+    joinDate: "2022-04-09T00:00:00Z",
+    message: "This is a test message.",
+    salary: 50000.5,
+    hobbies: ["reading", "traveling"],
+    address: {
+      street: "123 Elm St",
+      city: "Springfield",
+      postalCode: 12345,
+    },
+    metadata: {
+      extraInfo: "Some additional information",
+    },
+  },
+  {
     name: "John Doe",
     age: 30,
     isActive: true,
@@ -348,9 +366,10 @@ const users = [
 
 const seedData = async () => {
   try {
+    connectDB();
     // Clear the collection before seeding
-    // await User.deleteMany({});
-    // console.log("Old data removed.");
+    await MockData.deleteMany({});
+    console.log("Old data removed.");
 
     // Insert new data
     await MockData.insertMany(users);
@@ -361,7 +380,5 @@ const seedData = async () => {
     mongoose.connection.close();
   }
 };
-
-connectDB();
 
 seedData();
