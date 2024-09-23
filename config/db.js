@@ -10,7 +10,7 @@ const connectDB = async () => {
     console.log(`MongoDB Connected:`.underline.bgGreen);
   } catch (error) {
     console.log("File: db.js", "Line 13:", error);
-    logger.error(`Error Connect To MongoDb: ${error.message}`);
+    // logger.error(`Error Connect To MongoDb: ${error.message}`);
     process.exit();
   }
 };

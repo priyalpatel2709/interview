@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, resp) => {
-  const htmlContent = "<h1>Hello, Srever is Running 😁</h1>";
+  const htmlContent = "<h1>Hello, Server is Running (Inter View) 😁</h1>";
   resp.send(htmlContent);
 });
 

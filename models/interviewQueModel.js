@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const interviewQue = mongoose.Schema(
   {
     name: { type: String, required: true }, // String type for the name field
+    email: { type: String },
     age: { type: Number, required: true }, // Number type for age field
     isActive: { type: Boolean, default: false }, // Boolean to indicate active status
     joinDate: { type: Date, default: Date.now }, // Date type for the join date
