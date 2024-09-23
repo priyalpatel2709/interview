@@ -17,7 +17,7 @@ const protect = asyncHandler(async (req, res, next) => {
       return res.status(401).json({ error: "User not found" });
     }
 
-    req.user = user;
+    // req.user = user;
     next();
   } catch (error) {
     res.status(401).json({ error: "Not authorized, token invalid" });

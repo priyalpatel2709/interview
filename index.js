@@ -22,6 +22,9 @@ app.get("/", (req, resp) => {
 
 app.use("/api/interview", orationsRouters);
 
+app.use(notFound);
+app.use(errorHandler);
+
 const PORT = process.env.PORT || 9800;
 const server = app.listen(PORT, () => {
   console.log(`server is running on PORT http://localhost:${PORT}`);
