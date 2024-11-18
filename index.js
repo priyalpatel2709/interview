@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const si = require("systeminformation");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const orationsRouters = require("./routes/interviewQue");
@@ -17,7 +18,9 @@ app.use(cors());
 
 app.get("/", (req, resp) => {
   const htmlContent = "<h1>Hello, Server is Running (Inter View) 😁</h1>";
-  resp.send(htmlContent);
+  si.cpu()
+    .then((data) => resp.send(data))
+    .catch((error) => resp.send(error));
 });
 
 app.use("/api/interview", orationsRouters);
